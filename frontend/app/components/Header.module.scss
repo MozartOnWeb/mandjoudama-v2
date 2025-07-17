@@ -1,0 +1,38 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 2rem 0;
+
+  .logo {
+    font-size: 18px;
+  }
+
+  .theme_switchers {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 1.5rem;
+
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    padding: 0.5rem 0.8rem;
+    background-color: var(--gray);
+    border-radius: 30px;
+
+    svg {
+      cursor: pointer;
+      opacity: 0.6;
+    }
+
+    .active {
+      opacity: 1;
+      path {
+        stroke: var(--accent);
+      }
+    }
+  }
+}
