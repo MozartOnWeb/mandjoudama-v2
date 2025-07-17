@@ -30,3 +30,10 @@ a {
   color: inherit;
   text-decoration: none;
 }
+
+.main_section {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
