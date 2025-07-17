@@ -95,6 +95,10 @@
     .section_4 {
       grid-column-start: 3;
       grid-row-start: 1;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
     }
 
     .section_5 {
@@ -201,4 +205,28 @@
       flex-wrap: wrap;
     }
   }
+}
+
+.tech_stacks_header {
+  display: flex;
+  align-items: center;
+  margin-top: 1rem;
+  gap: 8px;
+
+  h5 {
+    font-size: 16px;
+    font-weight: 300;
+  }
+}
+.role {
+  font-size: 14px;
+  font-weight: 300;
+  opacity: 0.6;
+  margin-top: 3px;
+}
+
+.tech_stacks_container {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
 }

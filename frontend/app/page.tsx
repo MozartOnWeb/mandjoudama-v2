@@ -67,6 +67,37 @@ export default async function Page() {
     },
   ];
 
+  const experiences = [
+    {
+      employer: "Freelancer",
+      role: "Mobile & Web Developper",
+    },
+    {
+      employer: "Kabakoo Academies",
+      role: "UX / UI Designer",
+    },
+    {
+      employer: "Freelancer",
+      role: "Frontend Developper",
+    },
+    {
+      employer: "Elim Communication",
+      role: "Frontend Developper",
+    },
+  ];
+
+  const stacks = [
+    "React Native",
+    "Expo",
+    "Next.js",
+    "Vercel",
+    "Supabase",
+    "Sanity.io",
+    "Figma",
+    "Typescript",
+    "SCSS",
+  ];
+
   return (
     <main className={styles.page}>
       <div>
@@ -88,48 +119,21 @@ export default async function Page() {
           <h3>Experiences</h3>
 
           <div className={styles.educations_container}>
-            <div className={styles.education_item}>
-              <div className={styles.education_dot}>
-                <div></div>
-              </div>
+            {experiences.map(({ employer, role }) => (
+              <div
+                key={`${employer}_${role}`}
+                className={styles.education_item}
+              >
+                <div className={styles.education_dot}>
+                  <div></div>
+                </div>
 
-              <div className={styles.education_details}>
-                <h5>Freelancer</h5>
-                <p>Mobile & Web Developper</p>
+                <div className={styles.education_details}>
+                  <h5>{employer}</h5>
+                  <p>{role}</p>
+                </div>
               </div>
-            </div>
-
-            <div className={styles.education_item}>
-              <div className={styles.education_dot}>
-                <div></div>
-              </div>
-
-              <div className={styles.education_details}>
-                <h5>Kabakoo Academies</h5>
-                <p>UX / UI Designer</p>
-              </div>
-            </div>
-
-            <div className={styles.education_item}>
-              <div className={styles.education_dot}>
-                <div></div>
-              </div>
-
-              <div className={styles.education_details}>
-                <h5>Freelancer</h5>
-                <p>Frontend Developper</p>
-              </div>
-            </div>
-            <div className={styles.education_item}>
-              <div className={styles.education_dot}>
-                <div></div>
-              </div>
-
-              <div className={styles.education_details}>
-                <h5>Elim Communication</h5>
-                <p>Frontend Developper</p>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
 
@@ -173,7 +177,24 @@ export default async function Page() {
         </div>
 
         <div className={`${styles.section} ${styles.section_4}`}>
-          <h3>Tech Stacks</h3>
+          <div>
+            <h3>Tech Stacks</h3>
+
+            <div className={styles.tech_stacks_header}>
+              <h5>Mobile</h5>
+              <div className={styles.middle_dot}></div>
+              <h5>Front End</h5>
+            </div>
+            <p className={styles.role}>Developper</p>
+          </div>
+
+          <div className={styles.tech_stacks_container}>
+            {stacks.map((stack) => (
+              <div key={stack} className={styles.project_stack}>
+                <p>{stack}</p>
+              </div>
+            ))}
+          </div>
         </div>
 
         <div className={`${styles.section} ${styles.section_5}`}>
