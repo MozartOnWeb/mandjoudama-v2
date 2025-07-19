@@ -2,13 +2,12 @@
   "name": "frontend",
   "private": true,
   "scripts": {
-    "predev": "npm run typegen",
+    "predev": "npm run",
     "dev": "next dev --turbopack",
-    "prebuild": "npm run typegen",
+    "prebuild": "npm run",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
-    "typegen": "sanity typegen generate"
+    "lint": "next lint"
   },
   "dependencies": {
     "@sanity/client": "^7.6.0",

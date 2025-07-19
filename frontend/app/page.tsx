@@ -4,26 +4,23 @@ import { Suspense } from "react";
 import Link from "next/link";
 import { PortableText } from "@portabletext/react";
 
-import { AllPosts } from "@/app/components/Posts";
-import GetStartedCode from "@/app/components/GetStartedCode";
-import SideBySideIcons from "@/app/components/SideBySideIcons";
-import { settingsQuery } from "@/sanity/lib/queries";
-import { sanityFetch } from "@/sanity/lib/live";
-
-const fetchNowPlaying = async () => {
-  const res = await fetch("/api/now-playing");
-  const data = await res.json();
-
-  console.log("now playing", data);
-  return data;
-};
-
 export default async function Page() {
   // const { data: settings } = await sanityFetch({
   //   query: settingsQuery,
   // });
 
-  await fetchNowPlaying();
+  const fetchNowPlaying = async () => {
+    const res = await fetch(
+      "https://test-theta-mauve-53.vercel.app/api/now-playing"
+    );
+    const data = await res.json();
+
+    return data;
+  };
+
+  const details = await fetchNowPlaying();
+
+  console.log("now playing", details);
 
   const projects = [
     {
@@ -155,6 +152,20 @@ export default async function Page() {
 
             <h3>Apple Music</h3>
           </div>
+
+          <div className={styles.now_playing_footer}>
+            <img
+              src={
+                details?.artwork ? details?.artwork?.split("\n")[0].trim() : ""
+              }
+              alt={`${details?.title} by ${details?.artist}`}
+            />
+
+            <div>
+              <p>{details?.title}</p>
+              <p>{details?.artist}</p>
+            </div>
+          </div>
         </div>
 
         <div className={`${styles.section} ${styles.section_3}`}>
@@ -252,7 +263,7 @@ export default async function Page() {
               strokeLinecap="round"
               strokeLinejoin="round"
             />
-            <circle cx="56.5" cy="106.5" r="5.5" fill={"#c94c28"} />
+            <circle cx="56.5" cy="106.5" r="3" fill={"#c94c28"} />
           </svg>
         </div>
       </div>

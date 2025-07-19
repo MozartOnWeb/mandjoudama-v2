@@ -7,24 +7,32 @@ let nowPlaying: {
   timestamp: number;
 } | null = null;
 
-export default async function handler(
-  req: NextApiRequest,
-  res: NextApiResponse
-) {
+export async function POST(req: Request) {
   if (req.method === "POST") {
-    const { title, artist, artwork } = req.body;
+    const { title, artist, artwork } = await req.json();
     nowPlaying = {
       title,
       artist,
       artwork,
       timestamp: Date.now(),
     };
-    return res.status(200).json({ success: true });
+    return new Response(JSON.stringify({ success: true }), {
+      status: 200,
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
   }
+  return new Response(null, {
+    status: 405,
+  });
+}
 
-  if (req.method === "GET") {
-    return res.status(200).json(nowPlaying);
-  }
-
-  res.status(405).end();
+export async function GET() {
+  return new Response(JSON.stringify(nowPlaying), {
+    status: 200,
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
 }
