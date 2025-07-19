@@ -1,109 +1,101 @@
 import styles from "./page.module.scss";
 
-import { Suspense } from "react";
 import Link from "next/link";
-import { PortableText } from "@portabletext/react";
+import { supabase } from "@/lib/supabase";
+
+const projects = [
+  {
+    title: "13",
+    date: "May 2025",
+    status: "Current",
+    stacks: ["React Native", "Expo", "Supabase"],
+    link: "https://mandjoudama.com",
+  },
+  {
+    title: "O-Bambu App",
+    date: "May 2025",
+    status: "Current",
+    stacks: ["React Native", "Expo", "Supabase"],
+    link: "https://mandjoudama.com",
+  },
+  {
+    title: "O-Bambu Website",
+    date: "June 2025",
+    status: "Done",
+    stacks: ["Next.js", "Sanity.io"],
+    link: "https://mandjoudama.com",
+  },
+  {
+    title: "Yumi - Currency Converter",
+    date: "April 2025",
+    status: "Done",
+    stacks: ["React Native", "Expo"],
+    link: "https://mandjoudama.com",
+  },
+  {
+    title: "Bamako Art Gallery",
+    date: "February 2025",
+    status: "Done",
+    stacks: ["Next.js", "Sanity.io"],
+    link: "https://mandjoudama.com",
+  },
+  {
+    title: "Kabakoo - App",
+    date: "September 2024",
+    status: "Done",
+    stacks: ["Figma", "Pitch"],
+    link: "https://mandjoudama.com",
+  },
+  {
+    title: "Kabakoo - Website",
+    date: "April 2024",
+    status: "Done",
+    stacks: ["Webflow", "Figma"],
+    link: "https://mandjoudama.com",
+  },
+];
+
+const experiences = [
+  {
+    employer: "Freelancer",
+    role: "Mobile & Web Developper",
+  },
+  {
+    employer: "Kabakoo Academies",
+    role: "UX / UI Designer",
+  },
+  {
+    employer: "Freelancer",
+    role: "Frontend Developper",
+  },
+  {
+    employer: "Elim Communication",
+    role: "Frontend Developper",
+  },
+];
+
+const stacks = [
+  "React Native",
+  "Expo",
+  "Next.js",
+  "Vercel",
+  "Supabase",
+  "Sanity.io",
+  "Figma",
+  "Typescript",
+  "SCSS",
+];
 
 export default async function Page() {
-  // const { data: settings } = await sanityFetch({
-  //   query: settingsQuery,
-  // });
+  const { data, error } = await supabase
+    .from("now_playing")
+    .select("*")
+    .eq("id", "now_playing")
+    .single();
 
-  const fetchNowPlaying = async () => {
-    const res = await fetch(
-      "https://test-theta-mauve-53.vercel.app/api/now-playing"
-    );
-    const data = await res.json();
-
-    return data;
-  };
-
-  const details = await fetchNowPlaying();
-
-  console.log("now playing", details);
-
-  const projects = [
-    {
-      title: "13",
-      date: "May 2025",
-      status: "Current",
-      stacks: ["React Native", "Expo", "Supabase"],
-      link: "https://mandjoudama.com",
-    },
-    {
-      title: "O-Bambu App",
-      date: "May 2025",
-      status: "Current",
-      stacks: ["React Native", "Expo", "Supabase"],
-      link: "https://mandjoudama.com",
-    },
-    {
-      title: "O-Bambu Website",
-      date: "June 2025",
-      status: "Done",
-      stacks: ["Next.js", "Sanity.io"],
-      link: "https://mandjoudama.com",
-    },
-    {
-      title: "Yumi - Currency Converter",
-      date: "April 2025",
-      status: "Done",
-      stacks: ["React Native", "Expo"],
-      link: "https://mandjoudama.com",
-    },
-    {
-      title: "Bamako Art Gallery",
-      date: "February 2025",
-      status: "Done",
-      stacks: ["Next.js", "Sanity.io"],
-      link: "https://mandjoudama.com",
-    },
-    {
-      title: "Kabakoo - App",
-      date: "September 2024",
-      status: "Done",
-      stacks: ["Figma", "Pitch"],
-      link: "https://mandjoudama.com",
-    },
-    {
-      title: "Kabakoo - Website",
-      date: "April 2024",
-      status: "Done",
-      stacks: ["Webflow", "Figma"],
-      link: "https://mandjoudama.com",
-    },
-  ];
-
-  const experiences = [
-    {
-      employer: "Freelancer",
-      role: "Mobile & Web Developper",
-    },
-    {
-      employer: "Kabakoo Academies",
-      role: "UX / UI Designer",
-    },
-    {
-      employer: "Freelancer",
-      role: "Frontend Developper",
-    },
-    {
-      employer: "Elim Communication",
-      role: "Frontend Developper",
-    },
-  ];
-
-  const stacks = [
-    "React Native",
-    "Expo",
-    "Next.js",
-    "Vercel",
-    "Supabase",
-    "Sanity.io",
-    "Figma",
-    "Typescript",
-    "SCSS",
-  ];
+  if (error) {
+    return <div>Error: {error.message}</div>;
+  }
 
   return (
     <main className={styles.page}>
@@ -155,15 +147,13 @@ export default async function Page() {
 
           <div className={styles.now_playing_footer}>
             <img
-              src={
-                details?.artwork ? details?.artwork?.split("\n")[0].trim() : ""
-              }
-              alt={`${details?.title} by ${details?.artist}`}
+              src={data?.artwork ? data?.artwork?.split("\n")[0].trim() : ""}
+              alt={`${data?.title} by ${data?.artist}`}
             />
 
             <div>
-              <p>{details?.title}</p>
-              <p>{details?.artist}</p>
+              <p>{data?.title}</p>
+              <p>{data?.artist}</p>
             </div>
           </div>
         </div>
