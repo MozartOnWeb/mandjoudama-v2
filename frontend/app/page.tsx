@@ -10,10 +10,20 @@ import SideBySideIcons from "@/app/components/SideBySideIcons";
 import { settingsQuery } from "@/sanity/lib/queries";
 import { sanityFetch } from "@/sanity/lib/live";
 
+const fetchNowPlaying = async () => {
+  const res = await fetch("/api/now-playing");
+  const data = await res.json();
+
+  console.log("now playing", data);
+  return data;
+};
+
 export default async function Page() {
-  const { data: settings } = await sanityFetch({
-    query: settingsQuery,
-  });
+  // const { data: settings } = await sanityFetch({
+  //   query: settingsQuery,
+  // });
+
+  await fetchNowPlaying();
 
   const projects = [
     {
