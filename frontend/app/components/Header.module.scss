@@ -6,7 +6,7 @@
   max-width: 1440px;
   width: 100%;
   margin: 0 auto;
-  padding: 2rem 0;
+  padding: 2rem 2rem;
 
   .logo {
     font-size: 18px;
@@ -35,5 +35,11 @@
         stroke: var(--accent);
       }
     }
+  }
+}
+
+@media (max-width: 480px) {
+  .header {
+    padding: 2rem 1rem;
   }
 }

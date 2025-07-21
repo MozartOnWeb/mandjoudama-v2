@@ -1,6 +1,7 @@
 .page {
   max-width: 1440px;
   margin: 0 auto;
+  padding: 0px 2rem;
 
   .middle_dot {
     height: 5px;
@@ -106,6 +107,8 @@
       display: flex;
       flex-direction: column;
       justify-content: space-between;
+
+      position: relative;
     }
 
     .section_5 {
@@ -283,8 +286,9 @@
 .timezone_bars {
   display: flex;
   flex-direction: row;
-  gap: 10px;
   margin-top: 0.8rem;
+  width: 60%;
+  justify-content: space-between;
 
   div {
     height: 7px;
@@ -294,11 +298,12 @@
     &:nth-child(2n) {
       opacity: 0.3;
     }
+  }
 
-    &:nth-child(19) {
-      background-color: var(--accent);
-      width: 2px;
-    }
+  div.active {
+    background-color: var(--accent);
+    width: 2px;
+    opacity: 1;
   }
 }
 
@@ -338,4 +343,104 @@
       }
     }
   }
+}
+
+/* Large screens (1200px and below) */
+@media (max-width: 1200px) {
+  .grid_container {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    grid-template-rows: 1fr 1fr 1fr !important;
+    height: 75vh !important;
+
+    .section {
+      width: 100%;
+    }
+
+    .section_2,
+    .section_3,
+    .section_4,
+    .section_5 {
+      grid-row: auto !important;
+      grid-column-start: auto !important;
+      grid-row-start: auto !important;
+    }
+  }
+}
+
+/* Medium screens (768px and below) */
+@media (max-width: 768px) {
+  .grid_container {
+    display: flex !important;
+    flex-direction: column;
+    height: auto !important;
+
+    margin-bottom: 30px;
+
+    .section {
+      min-height: 300px;
+    }
+  }
+}
+
+/* Small screens (480px and below) */
+@media (max-width: 480px) {
+  .page {
+    padding: 0px 1rem;
+  }
+  .header {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start !important;
+    justify-content: flex-start;
+    margin-bottom: 2rem;
+    text-align: left;
+    gap: 0.4rem;
+  }
+
+  .project_dot {
+    p {
+      font-size: 10px !important;
+      font-weight: 600 !important;
+      color: var(--accent);
+    }
+  }
+
+  .project_details_header {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start !important;
+    gap: 2px !important;
+    margin-bottom: 10px !important;
+
+    div {
+      display: none;
+    }
+  }
+
+  .timezone_bars {
+    justify-content: space-between;
+    width: 85% !important;
+  }
+
+  .timezone_intervals {
+    width: 85% !important;
+  }
+
+  .section_5 {
+    svg {
+      right: -125px !important;
+      bottom: 50px !important;
+    }
+  }
+
+  .now_playing_footer {
+    img {
+      width: 50%;
+    }
+  }
+}
+
+/* Extra small screens (380px and below) */
+@media (max-width: 380px) {
 }

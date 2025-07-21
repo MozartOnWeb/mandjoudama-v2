@@ -37,3 +37,9 @@ a {
   flex-direction: column;
   justify-content: space-between;
 }
+
+@media (max-width: 1200px) {
+  .main_section {
+    height: auto;
+  }
+}
