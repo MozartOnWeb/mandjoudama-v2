@@ -1,7 +1,9 @@
-import styles from "./page.module.scss";
+import "./page.scss";
 
 import Link from "next/link";
 import { supabase } from "@/lib/supabase";
+
+import NowPlaying from "./components/NowPlaying";
 
 const projects = [
   {
@@ -98,14 +100,14 @@ export default async function Page() {
   }
 
   return (
-    <main className={styles.page}>
+    <main className={"page"}>
       <div>
-        <div className={styles.header}>
+        <div className={"header"}>
           <h1>Mandjou Dama</h1>
           <a href="mailto:contact@mandjoudama.com">contact@mandjoudama.com</a>
         </div>
 
-        <p className={styles.description}>
+        <p className={"description"}>
           I&apos;m a Front-End Developer with a keen interest in a multitude of
           topics spanning the realm of software development. My expertise lies
           not only in crafting captivating user interfaces but also delving into
@@ -113,21 +115,18 @@ export default async function Page() {
         </p>
       </div>
 
-      <div className={styles.grid_container}>
-        <div className={`${styles.section} ${styles.section_1}`}>
+      <div className={"grid_container"}>
+        <div className={"section section_1"}>
           <h3>Experiences</h3>
 
-          <div className={styles.educations_container}>
+          <div className={"educations_container"}>
             {experiences.map(({ employer, role }) => (
-              <div
-                key={`${employer}_${role}`}
-                className={styles.education_item}
-              >
-                <div className={styles.education_dot}>
+              <div key={`${employer}_${role}`} className={"education_item"}>
+                <div className={"education_dot"}>
                   <div></div>
                 </div>
 
-                <div className={styles.education_details}>
+                <div className={"education_details"}>
                   <h5>{employer}</h5>
                   <p>{role}</p>
                 </div>
@@ -136,47 +135,27 @@ export default async function Page() {
           </div>
         </div>
 
-        <div className={`${styles.section} ${styles.section_2}`}>
-          <div className={styles.title}>
-            <h3>Listening now</h3>
+        <NowPlaying />
 
-            <div className={styles.middle_dot}></div>
-
-            <h3>Apple Music</h3>
-          </div>
-
-          <div className={styles.now_playing_footer}>
-            <img
-              src={data?.artwork ? data?.artwork?.split("\n")[0].trim() : ""}
-              alt={`${data?.title} by ${data?.artist}`}
-            />
-
-            <div>
-              <p>{data?.title}</p>
-              <p>{data?.artist}</p>
-            </div>
-          </div>
-        </div>
-
-        <div className={`${styles.section} ${styles.section_3}`}>
+        <div className={"section section_3"}>
           <h3>Projects</h3>
 
-          <div className={styles.projects_container}>
+          <div className={"projects_container"}>
             {projects.map(({ title, date, status, stacks, link }, index) => (
-              <div key={`project_${index}`} className={styles.project_item}>
-                <div className={styles.project_dot}>
+              <div key={`project_${index}`} className={"project_item"}>
+                <div className={"project_dot"}>
                   <p>{index + 1}</p>
                 </div>
 
-                <div className={styles.project_details}>
-                  <div className={styles.project_details_header}>
+                <div className={"project_details"}>
+                  <div className={"project_details_header"}>
                     <Link href={link}>{title}</Link>
-                    <div className={styles.middle_dot}></div>
+                    <div className={"middle_dot"}></div>
                     <p>{`${date} ${status === "Current" ? `- ${status}` : ""}`}</p>
                   </div>
-                  <div className={styles.project_stacks}>
+                  <div className={"project_stacks"}>
                     {stacks.map((stack) => (
-                      <div key={stack} className={styles.project_stack}>
+                      <div key={stack} className={"project_stack"}>
                         <p>{stack}</p>
                       </div>
                     ))}
@@ -187,42 +166,42 @@ export default async function Page() {
           </div>
         </div>
 
-        <div className={`${styles.section} ${styles.section_4}`}>
+        <div className={"section section_4"}>
           <div>
             <h3>Tech Stacks</h3>
 
-            <div className={styles.tech_stacks_header}>
+            <div className={"tech_stacks_header"}>
               <h5>Mobile</h5>
-              <div className={styles.middle_dot}></div>
+              <div className={"middle_dot"}></div>
               <h5>Front End</h5>
             </div>
-            <p className={styles.role}>Developper</p>
+            <p className={"role"}>Developper</p>
           </div>
 
-          <div className={styles.tech_stacks_container}>
+          <div className={"tech_stacks_container"}>
             {stacks.map((stack) => (
-              <div key={stack} className={styles.project_stack}>
+              <div key={stack} className={"project_stack"}>
                 <p>{stack}</p>
               </div>
             ))}
           </div>
         </div>
 
-        <div className={`${styles.section} ${styles.section_5}`}>
+        <div className={"section section_5"}>
           <div>
             <h3>Location & Timezone</h3>
-            <div className={styles.location_header}>
+            <div className={"location_header"}>
               <h5>Bamako</h5>
-              <div className={styles.middle_dot}></div>
+              <div className={"middle_dot"}></div>
               <h5>Mali</h5>
             </div>
-            <p className={styles.role}>July 18, 2025</p>
+            <p className={"role"}>July 18, 2025</p>
           </div>
 
-          <div className={styles.location_footer}>
-            <p className={styles.hour}>21:34</p>
+          <div className={"location_footer"}>
+            <p className={"hour"}>21:34</p>
 
-            <div className={styles.timezone_bars}>
+            <div className={"timezone_bars"}>
               {[
                 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18,
                 19, 20, 21, 22, 23, 24,
@@ -231,7 +210,7 @@ export default async function Page() {
               ))}
             </div>
 
-            <div className={styles.timezone_intervals}>
+            <div className={"timezone_intervals"}>
               <p>12</p>
               <p>6</p>
               <p>12</p>
