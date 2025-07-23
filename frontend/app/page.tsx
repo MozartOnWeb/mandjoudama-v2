@@ -7,73 +7,98 @@ import NowPlaying from "./components/NowPlaying";
 import Location from "./components/Location";
 
 const projects = [
-  {
-    title: "13",
-    date: "May 2025",
-    status: "Current",
-    stacks: ["React Native", "Expo", "Supabase"],
-    link: "https://mandjoudama.com",
-  },
+  // {
+  //   title: "13",
+  //   date: "May 2025",
+  //   status: "Current",
+  //   stacks: ["React Native", "Expo", "Supabase"],
+  //   link: "https://mandjoudama.com",
+  // },
   {
     title: "O-Bambu App",
-    date: "May 2025",
+    date: "March 2025",
     status: "Current",
     stacks: ["React Native", "Expo", "Supabase"],
-    link: "https://mandjoudama.com",
+    link: "https://apps.apple.com/ml/app/o-bambu/id6746059635",
   },
   {
     title: "O-Bambu Website",
     date: "June 2025",
     status: "Done",
     stacks: ["Next.js", "Sanity.io"],
-    link: "https://mandjoudama.com",
+    link: "https://www.o-bambu.com/",
   },
   {
     title: "Yumi - Currency Converter",
     date: "April 2025",
     status: "Done",
     stacks: ["React Native", "Expo"],
-    link: "https://mandjoudama.com",
+    link: "https://apps.apple.com/ml/app/yumi/id6747351946",
   },
   {
     title: "Bamako Art Gallery",
     date: "February 2025",
     status: "Done",
     stacks: ["Next.js", "Sanity.io"],
-    link: "https://mandjoudama.com",
+    link: "https://www.bamakoartgallery.com/en",
   },
   {
     title: "Kabakoo - App",
     date: "September 2024",
     status: "Done",
     stacks: ["Figma", "Pitch"],
-    link: "https://mandjoudama.com",
+    link: "https://apps.apple.com/ml/app/kabakoo/id6504529066",
   },
   {
     title: "Kabakoo - Website",
     date: "April 2024",
     status: "Done",
     stacks: ["Webflow", "Figma"],
-    link: "https://mandjoudama.com",
+    link: "https://www.kabakoo.africa/",
+  },
+  {
+    title: "Tiecoura N'Daou",
+    date: "February 2024",
+    status: "Done",
+    stacks: ["Webflow", "Figma"],
+    link: "https://tiecoura-com.webflow.io/",
+  },
+  {
+    title: "CoolFaces",
+    date: "December 2023",
+    status: "Done",
+    stacks: ["Next.js", "Sanity.io"],
+    link: "https://coolfaces.vercel.app/",
+  },
+  {
+    title: "Ikazic",
+    date: "March 2023",
+    status: "Done",
+    stacks: ["Next.js"],
+    link: "https://ikazic.vercel.app/",
   },
 ];
 
 const experiences = [
   {
     employer: "Freelancer",
-    role: "Mobile & Web Developper",
+    role: "Mobile & Frontend Developper",
+    date: "Current",
   },
   {
     employer: "Kabakoo Academies",
     role: "UX / UI Designer",
+    date: "2022-2024",
   },
   {
     employer: "Freelancer",
     role: "Frontend Developper",
+    date: "2021-2022",
   },
   {
     employer: "Elim Communication",
     role: "Frontend Developper",
+    date: "2019-2021",
   },
 ];
 
@@ -87,6 +112,7 @@ const stacks = [
   "Figma",
   "Typescript",
   "SCSS",
+  "CSS",
 ];
 
 export default async function Page() {
@@ -109,10 +135,10 @@ export default async function Page() {
         </div>
 
         <p className={"description"}>
-          I&apos;m a Front-End Developer with a keen interest in a multitude of
-          topics spanning the realm of software development. My expertise lies
-          not only in crafting captivating user interfaces but also delving into
-          the intricacies of Back End dev.
+          I’m a mobile and front-end developer, passionate about everything
+          related to software development. I enjoy crafting modern, seamless
+          user interfaces while also exploring the more technical aspects of
+          development, both on the client and server sides.
         </p>
       </div>
 
@@ -121,14 +147,18 @@ export default async function Page() {
           <h3>Experiences</h3>
 
           <div className={"educations_container"}>
-            {experiences.map(({ employer, role }) => (
+            {experiences.map(({ employer, role, date }) => (
               <div key={`${employer}_${role}`} className={"education_item"}>
                 <div className={"education_dot"}>
                   <div></div>
                 </div>
 
                 <div className={"education_details"}>
-                  <h5>{employer}</h5>
+                  <div className={"education_details_header"}>
+                    <h5>{employer}</h5>
+                    <div className={"middle_dot"}></div>
+                    <p>{date}</p>
+                  </div>
                   <p>{role}</p>
                 </div>
               </div>
@@ -148,7 +178,9 @@ export default async function Page() {
 
                 <div className={"project_details"}>
                   <div className={"project_details_header"}>
-                    <Link href={link}>{title}</Link>
+                    <Link target="_blank" href={link}>
+                      {title}
+                    </Link>
                     <div className={"middle_dot"}></div>
                     <p>{`${date} ${status === "Current" ? `- ${status}` : ""}`}</p>
                   </div>

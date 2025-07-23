@@ -92,6 +92,21 @@
       display: flex;
       flex-direction: column;
       justify-content: space-between;
+
+      position: relative;
+
+      svg {
+        position: absolute;
+        top: -70px;
+        right: -80px;
+        width: 200px;
+        height: 200px;
+
+        opacity: 0.1;
+
+        path {
+        }
+      }
     }
 
     .section_3 {
@@ -180,6 +195,23 @@
       font-size: 12px;
       font-weight: 300;
       opacity: 0.6;
+    }
+
+    .education_details_header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+
+      h5 {
+        font-size: 16px;
+        font-weight: 300;
+        text-decoration: none;
+      }
+      p {
+        font-size: 14px;
+        font-weight: 300;
+        opacity: 0.6;
+      }
     }
   }
 }
