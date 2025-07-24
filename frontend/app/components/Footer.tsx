@@ -5,9 +5,15 @@ export default function Footer() {
   return (
     <footer className={styles.footer}>
       <div className={styles.links}>
-        <Link href="/">LinkedIn</Link>
-        <Link href="/">Github</Link>
-        <Link href="/">Twitter</Link>
+        <Link target="_blank" href="https://www.linkedin.com/in/mandjou-dama/">
+          LinkedIn
+        </Link>
+        <Link target="_blank" href="https://github.com/MozartOnWeb">
+          Github
+        </Link>
+        <Link target="_blank" href="https://x.com/mandjou_code">
+          Twitter
+        </Link>
       </div>
 
       <p>2025 Mandjou Dama. All rights reserved.</p>
