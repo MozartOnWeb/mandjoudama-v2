@@ -23,7 +23,7 @@ const projects = [
   },
   {
     title: "O-Bambu Website",
-    date: "June 2025",
+    date: "April 2025",
     status: "Done",
     stacks: ["Next.js", "Sanity.io"],
     link: "https://www.o-bambu.com/",

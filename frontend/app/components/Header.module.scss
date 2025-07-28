@@ -17,16 +17,28 @@
     align-items: center;
     justify-content: space-between;
 
-    gap: 1.5rem;
+    gap: 0.5rem;
 
     border: 1px solid rgba(255, 255, 255, 0.06);
     padding: 0.5rem 0.8rem;
     background-color: var(--gray);
     border-radius: 30px;
 
+    p {
+      font-size: 14px;
+    }
+
     svg {
       cursor: pointer;
-      opacity: 0.6;
+      width: 20px;
+      height: 20px;
+
+      path {
+        stroke: var(--accent);
+      }
+      circle {
+        stroke: var(--accent);
+      }
     }
 
     .active {
