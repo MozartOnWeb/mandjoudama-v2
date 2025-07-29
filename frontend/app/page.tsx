@@ -14,20 +14,20 @@ const projects = [
   //   stacks: ["React Native", "Expo", "Supabase"],
   //   link: "https://mandjoudama.com",
   // },
-  {
-    title: "O-Bambu App",
-    date: "March 2025",
-    status: "Current",
-    stacks: ["React Native", "Expo", "Supabase"],
-    link: "https://apps.apple.com/ml/app/o-bambu/id6746059635",
-  },
-  {
-    title: "O-Bambu Website",
-    date: "April 2025",
-    status: "Done",
-    stacks: ["Next.js", "Sanity.io"],
-    link: "https://www.o-bambu.com/",
-  },
+  // {
+  //   title: "O-Bambu App",
+  //   date: "March 2025",
+  //   status: "Current",
+  //   stacks: ["React Native", "Expo", "Supabase"],
+  //   link: "https://apps.apple.com/ml/app/o-bambu/id6746059635",
+  // },
+  // {
+  //   title: "O-Bambu Website",
+  //   date: "April 2025",
+  //   status: "Done",
+  //   stacks: ["Next.js", "Sanity.io"],
+  //   link: "https://www.o-bambu.com/",
+  // },
   {
     title: "Yumi - Currency Converter",
     date: "April 2025",
@@ -70,13 +70,13 @@ const projects = [
     stacks: ["Next.js", "Sanity.io"],
     link: "https://coolfaces.vercel.app/",
   },
-  {
-    title: "Ikazic",
-    date: "March 2023",
-    status: "Done",
-    stacks: ["Next.js"],
-    link: "https://ikazic.vercel.app/",
-  },
+  // {
+  //   title: "Ikazic",
+  //   date: "March 2023",
+  //   status: "Done",
+  //   stacks: ["Next.js"],
+  //   link: "https://ikazic.vercel.app/",
+  // },
 ];
 
 const experiences = [
