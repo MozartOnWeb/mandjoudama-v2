@@ -21,13 +21,13 @@ const projects = [
   //   stacks: ["React Native", "Expo", "Supabase"],
   //   link: "https://apps.apple.com/ml/app/o-bambu/id6746059635",
   // },
-  // {
-  //   title: "O-Bambu Website",
-  //   date: "April 2025",
-  //   status: "Done",
-  //   stacks: ["Next.js", "Sanity.io"],
-  //   link: "https://www.o-bambu.com/",
-  // },
+  {
+    title: "O-Bambu",
+    date: "April 2025",
+    status: "Done",
+    stacks: ["Next.js", "Sanity.io"],
+    link: "https://www.o-bambu.com/",
+  },
   {
     title: "Yumi - Currency Converter",
     date: "April 2025",
