@@ -8,8 +8,8 @@ export default function Footer() {
         <Link target="_blank" href="https://www.linkedin.com/in/mandjou-dama/">
           LinkedIn
         </Link>
-        <Link target="_blank" href="https://github.com/MozartOnWeb">
-          Github
+        <Link target="_blank" href="https://github.com/mandjou-dama">
+          GitHub
         </Link>
         <Link target="_blank" href="https://x.com/mandjou_code">
           Twitter
