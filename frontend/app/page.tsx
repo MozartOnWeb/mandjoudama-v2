@@ -14,13 +14,13 @@ const projects = [
   //   stacks: ["React Native", "Expo", "Supabase"],
   //   link: "https://mandjoudama.com",
   // },
-  // {
-  //   title: "O-Bambu App",
-  //   date: "March 2025",
-  //   status: "Current",
-  //   stacks: ["React Native", "Expo", "Supabase"],
-  //   link: "https://apps.apple.com/ml/app/o-bambu/id6746059635",
-  // },
+  {
+    title: "O-Bambu App",
+    date: "March 2025",
+    status: "Current",
+    stacks: ["React Native", "Expo", "Supabase"],
+    link: "https://apps.apple.com/ml/app/o-bambu/id6746059635",
+  },
   {
     title: "O-Bambu",
     date: "April 2025",
